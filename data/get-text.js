@@ -36,10 +36,19 @@ var tagCheck = function(x) {
 }
 var finalButton = document.getElementById("publishButton");
 
-//list of ids of the site checkboxes from the panel
+//for tags use javascript trim method
+tagBox
+
+var sitebox = {
+	FA: document.getElementById("FAcheck"),
+	IB: document.getElementById("IBcheck"),
+	WS: document.getElementById("WScheck"),
+	SF: document.getElementById("SFcheck"),
+	DA: document.getElementById("DAcheck")
+};
 var sitelist = ["FAcheck", "IBcheck", "WScheck", "SFcheck", "DAcheck"];
-//this makes a list of booleans based off the checklist of sites.
-var siteCheck = function() {
+
+var siteCheck = function(x) {
 	var sitestatus = [];
 	for (i = 0; i < sitelist.length; i = i+1)
 		{
@@ -74,7 +83,7 @@ finalButton.addEventListener('click', function() {
 	cargo.title = titleArea.value.replace(/[\n\r]/g, '');
 	cargo.tags = tagCheck(tagArea.value);
 	cargo.rating = ratingsCheck(ratingsbox);
-	cargo.sites = siteCheck();
+	cargo.sites = siteCheck(sitelist);
 	console.log("Step 6: cargo loaded from panel");
 	//function to turn checked value of the onlyfriends box into onlyfriends
 	

@@ -14,7 +14,7 @@ var ShipIt = function(){
 document.querySelector("form#search-form").submit();
 };
 var Finalize = function(){
-titlePort(term);
+titlePort(self.options.Cargo.Title);
 ShipIt();
 };
 Finalize();

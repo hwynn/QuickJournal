@@ -6,15 +6,15 @@ self.port.emit("myMessage");
 var term = "modular";
 //puts words in the input box
 var titlePort = function(x){
-	var zA = document.querySelector("form#search-form fieldset input#q");
-	zA.value = x;
+	var FAzA = document.querySelector("form#search-form fieldset input#q");
+	FAzA.value = x;
 };
 //hits the submit button
 var ShipIt = function(){
 document.querySelector("form#search-form").submit();
 };
 var Finalize = function(){
-titlePort(term);
+titlePort(self.options.Cargo.Title);
 ShipIt();
 };
 Finalize();

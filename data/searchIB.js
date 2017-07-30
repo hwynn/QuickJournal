@@ -1,10 +1,13 @@
-var term = self.options.Cargo.Title;
-console.log(self.options.sites.urls[1]);
+document.addEventListener("submit", function(event) {
+console.log("Unloading now");
+self.port.emit("myMessage");
+}, false);
 
+var term = "modular";
 //puts words in the input box
 var titlePort = function(x){
-	var zA = document.querySelector("#text");
-	zA.value = x;
+	var IBzA = document.querySelector("#text");
+	IBzA.value = x;
 };
 //hits the submit button
 var ShipIt = function(){
@@ -14,21 +17,16 @@ var ShipIt = function(){
 	{
 		if (x !== null) 
 		{
-		console.log("It's x");
+			x.submit();
 		}
 		else 
 		{
-		console.log("It's y");
-			x = y;
+			y.submit();
 		}
 	}
-	x.submit();
-	console.log("Unloading now");
-	//self.port.emit("myMessage");
 };
 var Finalize = function(){
-titlePort(term);
+titlePort(self.options.Cargo.Title);
 ShipIt();
-console.log("That's all, folks");
 };
 Finalize();
