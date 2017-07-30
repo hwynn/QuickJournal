@@ -3,7 +3,7 @@ console.log("Unloading now");
 self.port.emit("myMessage");
 }, false);
 
-var term = "modular";
+var term = "headless";
 //puts words in the input box
 var titlePort = function(x){
 	var zA = document.querySelector("form#search-form fieldset input#q");
