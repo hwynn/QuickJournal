@@ -1,18 +1,20 @@
-document.addEventListener("submit", function(event) {
-console.log("Unloading now");
-self.port.emit("myMessage");
-}, false);
-//puts words in the input box
-var titlePort = function(x){
-	var FAzA = document.querySelector("form#search-form fieldset input#q");
-	FAzA.value = x;
-};
-//hits the submit button
-var ShipIt = function(){
-document.querySelector("form#search-form").submit();
-};
-var Finalize = function(){
-titlePort(self.options.Cargo.Title);
-ShipIt();
-};
-Finalize();
+console.log('searchFA, start');
+console.log(self.options);
+//console.log(document);
+
+// send signal to kill worker
+self.port.emit("workerKill");
+
+// get title
+var FAtitle = document.querySelector("form#search-form fieldset input#q");
+// get submit button
+var FAsubmit = document.querySelector("form#search-form");
+
+
+// set title value
+FAtitle.value = self.options.Cargo.Title;
+
+// submit search
+FAsubmit.submit();
+
+console.log("searchFA, end");

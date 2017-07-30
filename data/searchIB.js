@@ -1,30 +1,22 @@
-document.addEventListener("submit", function(event) {
-console.log("Unloading now");
-self.port.emit("myMessage");
-}, false);
-//puts words in the input box
-var titlePort = function(x){
-	var IBzA = document.querySelector("#text");
-	IBzA.value = x;
-};
-//hits the submit button
-var ShipIt = function(){
-	var x = document.querySelector("body > form:nth-child(12)");
-	var y =document.querySelector("body > form:nth-child(9)");
-	if (x !==null || y !==null)
-	{
-		if (x !== null) 
-		{
-			x.submit();
-		}
-		else 
-		{
-			y.submit();
-		}
-	}
-};
-var Finalize = function(){
-titlePort(self.options.Cargo.Title);
-ShipIt();
-};
-Finalize();
+console.log('searchIB, start');
+console.log(self.options);
+//console.log(document);
+
+// send signal to kill worker
+self.port.emit("workerKill");
+
+// get title
+var IBtitle = document.querySelector("#text");
+// get submit button
+var IBsubmit = document.querySelector("body > form:nth-child(12)");
+if(IBsubmit === null) {
+    IBsubmit = document.querySelector("body > form:nth-child(9)");
+}
+
+// set title value
+IBtitle.value = self.options.Cargo.Title;
+
+// submit search
+IBsubmit.submit();
+
+console.log("searchIB, end");
