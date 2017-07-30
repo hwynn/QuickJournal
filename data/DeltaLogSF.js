@@ -43,12 +43,16 @@ if (adult === null) {console.log("Adult is gone!");}
 var extreme = document.querySelector("#sf-upload-2-level .sf-upload-2-contentlevels span:nth-of-type(3) label.label_radio input#UploadForm_contentLevel_2");
 if (extreme === null) {console.log("Extreme is gone!");}
 switch (self.options.Cargo.rating) {
+	case 1:
+		//"13+" will be selected
+		adult.checked=true;
+		break;
 	case 2:
 		//"13+" will be selected
 		adult.checked=true;
 		break;
 	case 3:
-		//"18+ nonsexual" will be selected
+		//"18+ sexual" will be selected
 		extreme.checked=true;
 		break;
 	default:

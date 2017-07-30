@@ -49,6 +49,16 @@ if(cargo.onlyFriends)
 {
 }
 
-
 //hit submit
 EXXsubmit.submit();
+
+
+
+console.log("EXXtitle.value: "           +EXXtitle.value);
+console.log("EXXtitle.innerHTML: "       +EXXtitle.innerHTML);
+console.log("EXXcontent.value: "         +EXXcontent.value);
+console.log("EXXcontent.innerHTML: "     +EXXcontent.innerHTML);
+console.log("EXXtags.value: "            +EXXtags.value);
+console.log("EXXtags.innerHTML: "        +EXXtags.innerHTML);
+console.log("EXXonlyfriends.value: "     +EXXonlyfriends.value);
+console.log("EXXonlyfriends.innerHTML: " +EXXonlyfriends.innerHTML);

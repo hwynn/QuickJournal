@@ -157,6 +157,11 @@
 		cursor: pointer;
 		}
 		
+		.unAv
+		{
+		background-color: #ACA1A1;
+		}
+		
 		.IconCell > img
 		{
 		margin:3px;
@@ -211,4 +216,13 @@
 		padding: 0px;
 		height: 40px;
 		width:240px;
+		}
+		#deviantartUsername
+		{
+		height:22px;
+		}
+		
+		#roosterteethUsername
+		{
+		height:22px;
 		}

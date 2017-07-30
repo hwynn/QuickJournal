@@ -53,30 +53,30 @@
 							</img>
 							<input type="checkbox" checked class="HiddenCheck" id="DAcheck">
 						</div>
-						<div class="IconCell" id="FAcell" onmouseup="SetDestination('FA')">
-							<img src="FAfavicon.png">
+						<div class="IconCell" id="WScell" onmouseup="SetDestination('WS')">
+							<img src="WSfavicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="FAcheck">
+							<input type="checkbox" checked class="HiddenCheck" id="WScheck">
 						</div>
 						<div class="IconCell" id="IBcell" onmouseup="SetDestination('IB')">
 							<img src="IBfavicon.png">
 							</img>
 							<input type="checkbox" checked class="HiddenCheck" id="IBcheck">
 						</div>
-						<div class="IconCell" id="WScell" onmouseup="SetDestination('WS')">
-							<img src="WSfavicon.png">
-							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="WScheck">
-						</div>
 						<div class="IconCell" id="SFcell" onmouseup="SetDestination('SF')">
 							<img src="SFfavicon.png">
 							</img>
 							<input type="checkbox" checked class="HiddenCheck" id="SFcheck">
 						</div>
-						<div class="IconCell" id="Steamcell" onmouseup="SetDestination('Steam')">
-							<img src="Steamfavicon.png">
+						<div class="IconCell" id="FAcell" onmouseup="SetDestination('FA')">
+							<img src="FAfavicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="Steamcheck">
+							<input type="checkbox" checked class="HiddenCheck" id="FAcheck">
+						</div>
+						<div class="IconCell" id="TBcell" onmouseup="SetDestination('TB')">
+							<img src="TBfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="TBcheck">
 						</div>
 					</div>
 					<div id="#DropButtonRow1">
@@ -84,7 +84,7 @@
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="FAdrop" onmouseup="LightHouse('FA')">
+						<div class="DropButtonCell" id="WSdrop" onmouseup="LightHouse('WS')">
 							<img src="DropDown.png">
 							</img>
 						</div>
@@ -92,112 +92,133 @@
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="WSdrop" onmouseup="LightHouse('WS')">
-							<img src="DropDown.png">
-							</img>
-						</div>
 						<div class="DropButtonCell" id="SFdrop" onmouseup="LightHouse('SF')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="Steamdrop" onmouseup="LightHouse('Steam')">
+						<div class="DropButtonCell" id="FAdrop" onmouseup="LightHouse('FA')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="TBdrop" onmouseup="LightHouse('TB')">
 							<img src="DropDown.png">
 							</img>
 						</div>
 					</div>
 					<div class="SiteDropOptions" id="DAdo">
-					This one might work. But there are no options yet.
-					</div>
-					<div class="SiteDropOptions" id="FAdo">
-					This one should work. But there are no options yet.
-					</div>
-					<div class="SiteDropOptions" id="IBdo">
-					This one should work. But there are no options yet.
+					<textarea placehold="username" id="deviantartUsername"></textarea>
+					enter your username as it appears in your url
 					</div>
 					<div class="SiteDropOptions" id="WSdo">
-					This one should work. But there are no options yet.
+						Only let friends see this
+						<input type="checkbox" id="weasylFriendsOnly">
 					</div>
+					<div class="SiteDropOptions" id="IBdo">
+						<input type="checkbox" id="inkbGuestsBlocked">
+						Block guests
+						<input type="checkbox" id="inkbFriendsOnly">
+						Friends Only
+						<br>
+						<input type="checkbox" id="inkbLockComments">
+						Lock commenting
+					</div>					
 					<div class="SiteDropOptions" id="SFdo">
-					This one should work. But there are no options yet.
+						<select name="permission" id="sofurryPrivacy">
+							<option selected="selected" value="0">Public
+							</option>
+							<option value="1">Friends only
+							</option>
+							<option value="2">Private
+							</option>
+						</select>
 					</div>
-					<div class="SiteDropOptions" id="Steamdo">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="FAdo">
+						Disable Comments
+						<input type="checkbox" id="furaLockComments">
+					</div>
+					<div class="SiteDropOptions" id="TBdo">
 					</div>
 					<div id="IconRow2">
-						<div class="IconCell" id="EXX1cell" onmouseup="SetDestination('EXX1')">
-							<img src="EXX1favicon.png">
+						<div class="IconCell" id="GPcell" onmouseup="SetDestination('GP')">
+							<img src="GPfavicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX1check">
+							<input type="checkbox" checked class="HiddenCheck" id="GPcheck">
 						</div>
-						<div class="IconCell" id="EXX2cell" onmouseup="SetDestination('EXX2')">
-							<img src="EXX2favicon.png">
+						<div class="IconCell" id="RTcell" onmouseup="SetDestination('RT')">
+							<img src="RTfavicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX2check">
+							<input type="checkbox" checked class="HiddenCheck" id="RTcheck">
 						</div>
-						<div class="IconCell" id="EXX3cell" onmouseup="SetDestination('EXX3')">
-							<img src="EXX3favicon.png">
+						<div class="IconCell unAv" id="EXX09cell">
+							<img src="EXX09favicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX3check">
+							<input type="checkbox" class="HiddenCheck" id="EXX09check">
 						</div>
-						<div class="IconCell" id="EXX4cell" onmouseup="SetDestination('EXX4')">
-							<img src="EXX4favicon.png">
+						<div class="IconCell unAv" id="EXX10cell">
+							<img src="EXX10favicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX4check">
+							<input type="checkbox" class="HiddenCheck" id="EXX10check">
 						</div>
-						<div class="IconCell" id="EXX5cell" onmouseup="SetDestination('EXX5')">
-							<img src="EXX5favicon.png">
+						<div class="IconCell unAv" id="EXX11cell">
+							<img src="EXX11favicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX5check">
+							<input type="checkbox" class="HiddenCheck" id="EXX11check">
 						</div>
-						<div class="IconCell" id="EXX6cell" onmouseup="SetDestination('EXX6')">
-							<img src="EXX6favicon.png">
+						<div class="IconCell unAv" id="EXX12cell">
+							<img src="EXX12favicon.png">
 							</img>
-							<input type="checkbox" checked class="HiddenCheck" id="EXX6check">
+							<input type="checkbox" class="HiddenCheck" id="EXX12check">
 						</div>
 					</div>
 					<div id="#DropButtonRow1">
-						<div class="DropButtonCell" id="EXX1drop" onmouseup="LightHouse('EXX1')">
+						<div class="DropButtonCell" id="GPdrop" onmouseup="LightHouse('GP')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="EXX2drop" onmouseup="LightHouse('EXX2')">
+						<div class="DropButtonCell" id="RTdrop" onmouseup="LightHouse('RT')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="EXX3drop" onmouseup="LightHouse('EXX3')">
+						<div class="DropButtonCell" id="EXX09drop" onmouseup="LightHouse('EXX09')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="EXX4drop" onmouseup="LightHouse('EXX4')">
+						<div class="DropButtonCell" id="EXX10drop" onmouseup="LightHouse('EXX10')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="EXX5drop" onmouseup="LightHouse('EXX5')">
+						<div class="DropButtonCell" id="EXX11drop" onmouseup="LightHouse('EXX11')">
 							<img src="DropDown.png">
 							</img>
 						</div>
-						<div class="DropButtonCell" id="EXX6drop" onmouseup="LightHouse('EXX6')">
+						<div class="DropButtonCell" id="EXX12drop" onmouseup="LightHouse('EXX12')">
 							<img src="DropDown.png">
 							</img>
 						</div>
 					</div>
-					<div class="SiteDropOptions" id="EXX1do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="GPdo">
 					</div>
-					<div class="SiteDropOptions" id="EXX2do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="RTdo">
+						<select name="permission" id="roosterteethPrivacy">
+							<option selected="selected" value="0">Public
+							</option>
+							<option value="1">Sponsors only
+							</option>
+							<option value="2">Friends only
+							</option>
+							<option value="3">Private
+							</option>
+						</select>
+						<textarea placehold="username" id="roosterteethUsername"></textarea>
+						enter your username as it appears in your url
 					</div>
-					<div class="SiteDropOptions" id="EXX3do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="EXX09do">
 					</div>
-					<div class="SiteDropOptions" id="EXX4do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="EXX10do">
 					</div>
-					<div class="SiteDropOptions" id="EXX5do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="EXX11do">
 					</div>
-					<div class="SiteDropOptions" id="EXX6do">
-					Sorry. Functionality is not availible for this website yet. 
+					<div class="SiteDropOptions" id="EXX12do">
 					</div>
 				</div>
 			</div>

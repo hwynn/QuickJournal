@@ -1,12 +1,12 @@
 //Bug alert: this script will be unable to complete the post process
 //the current work around is to select another option in the
 //post drop down and then switch back to post and then click it.
-console.log('DeltaLogIB, start');
-console.log(self.options);
-//console.log(document);
-
-// send signal to kill worker
-self.port.emit("workerKill");
+//*******************************Define content to post
+var cargo = {
+	title: "Automatic journal posts with javascript",
+	content: "I've been working on javascript programming. This journal wasn't manually typed on the website by me. It was put in using my latest program.",
+	tags: ["These","tags","were","added","with","javascript"]
+};
 
 //*******************************Define selectors
 
@@ -25,17 +25,17 @@ var TBsubmit = document.querySelector("button.flat-button:nth-child(2)");
 //*******************************Insert content and submit
 
 //set title value
-TBtitle.innerHTML = (self.options.Cargo.title);
+TBtitle.innerHTML = (cargo.title);
 
 //set content value
-TBcontent.innerHTML = (self.options.Cargo.content);
+TBcontent.innerHTML = (cargo.content);
 
 //set tag value
 var tagPadding = ['<span draggable="true" class="tag-label">','</span>'];
 var Tags="";
-for(var i = 0; i < self.options.Cargo.tags.length; i = i + 1)
+for(var i = 0; i < cargo.tags.length; i = i + 1)
 {
-	Tags = tagPadding[0]+self.options.Cargo.tags[i]+tagPadding[1];
+	Tags = tagPadding[0]+cargo.tags[i]+tagPadding[1];
 }
 TBtags.innerHTML= Tags+TBtags.innerHTML;
 
