@@ -2,7 +2,6 @@ document.addEventListener("submit", function(event) {
 console.log("Unloading now");
 self.port.emit("myMessage");
 }, false);
-var term = "modular";
 //puts words in the input box
 var titlePort = function(x){
 	var WSzA = document.querySelector("form#search-backup-search input");
