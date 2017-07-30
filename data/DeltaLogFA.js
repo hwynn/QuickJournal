@@ -1,11 +1,9 @@
-var cargo = {
-	title: "Automatic journal posts with javascript",
-	content: "I've been working on javascript programming. This journal wasn't manually typed on the website by me. It was put in using my latest program.",
-	tags: ["These","tags","were","added","with","javascript"],
-	ratings: ["all", "13+", "18+ nonsexual", "18+ sexual"],
-	rating: 1,
-	onlyFriends: false
-};
+console.log('DeltaLogDA, start');
+console.log(self.options);
+//console.log(document);
+
+// send signal to kill worker
+self.port.emit("workerKill");
 
 //get title area
 var FAtitle = document.querySelector(".textbox");
@@ -16,9 +14,9 @@ var FAbutton = document.querySelector("form#MsgForm table tbody tr:nth-of-type(2
 var FAsubmit = document.querySelector("form#MsgForm");
 
 //set title value
-FAtitle.value = cargo.title;
+FAtitle.value = self.options.Cargo.title;
 //set content value
-FAcontent.innerHTML = cargo.content;
+FAcontent.innerHTML = self.options.Cargo.content;
 
 //hit submit
 FAbutton.name = "finish";

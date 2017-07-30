@@ -1,0 +1,214 @@
+*
+		{
+		padding-top: 0px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+		margin-left: 0px;
+		}
+		
+		body
+		{
+		padding-top: 8px;
+		padding-right: 8px;
+		padding-bottom: 8px;
+		padding-left: 8px;
+		width: 288px;
+		height:472px;
+		background-color: #ACA1A1;
+		}
+		
+		.t
+		{
+		width: 238px;
+		}
+		
+		.s
+		{
+		margin-right: 8px;
+		margin-left: 8px;
+		}
+		
+		.d
+		{
+		margin-top: 8px;
+		margin-bottom: 8px;
+		}
+		
+		.noselect {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		}
+		
+		.captains
+		{
+		padding-top: 8px;
+		padding-right: 8px;
+		padding-bottom: 8px;
+		padding-left: 8px;
+		width: 256px;
+		background-color: #0099CC;
+		border-radius: 5px;
+		}
+		
+		#MainBox
+		{
+		height:150px;
+		margin-bottom: 8px;
+		}
+		
+		#TitleBox
+		{
+		margin-bottom: 8px;
+		height:22px;
+		
+		}
+		
+		#ContentBox
+		{
+		margin-top: 8px;
+		height:70px
+		}
+		
+		#PostButton
+		{
+		margin-right: 88px;
+		margin-left: 88px;
+		height:22px;
+		width: 80px;
+		cursor: pointer;
+		}
+		
+		#OptionBox
+		{
+		height: 18px;
+		
+		}
+		
+		#AdvancedOptions
+		{
+		display: none;
+		}
+		
+		.SH {
+		background-color: #0099CC;
+		color: #000000;
+		font-family: verdana;
+		font-weight: bold;
+		text-align: center;
+		cursor: pointer;
+		text-shadow: 0px 0px 1px #F7F7F7;
+		}
+		#showButton{display: block;}
+		#hideButton{display: none;}
+		
+		
+		#TagBox
+		{
+		height:22px;
+		}
+		
+		#AdvancedOptions > div:nth-child(3) > h5:nth-child(1)
+		{
+		margin-top: 8px;
+		}
+		
+		#MR
+		{
+		margin-bottom: 8px;
+		}
+		
+		#SiteBox
+		{
+		padding-left:8px;
+		padding-right:8px;
+		}
+		
+		#AdvancedOptions > h4:nth-child(5)
+		{
+		margin-top: 8px;
+		margin-left: 8px;
+		margin-bottom: 8px;
+		text-align: center;
+		}
+		
+		#IconRow1
+		{
+		padding: 0px;
+		height: 40px;
+		width:240px;
+		}
+		
+		.IconCell
+		{
+		border:1px solid;
+		display: inline-block;
+		float:left;
+		background-color: #00FF00;
+		height: 38px;
+		width: 38px;
+		cursor: pointer;
+		}
+		
+		.IconCell > img
+		{
+		margin:3px;
+		}
+		
+		.HiddenCheck
+		{
+		display: none;
+		}
+		
+		#DropButtonRow1
+		{
+		padding: 0px;
+		height: 16px;
+		width:240px;
+		}
+		
+		.DropButtonCell
+		{
+		border-bottom:1px solid;
+		border-left:1px solid;
+		border-right:1px solid;
+		padding: 0px;
+		height: 14px;
+		width: 38px;
+		display: inline-block;
+		float:left;
+		background-color: #F2F2F2;
+
+		cursor: pointer;
+		}
+		
+		.DropButtonCell > img
+		{
+		margin:0px;
+		}
+		
+		.SiteDropOptions
+		{
+		position: relative;
+		display:none;
+		height: 40px;
+		width:238px;
+		border-bottom:1px solid;
+		border-left:1px solid;
+		border-right:1px solid;
+		background-color: #F2F2F2;
+		}
+		
+		#IconRow2
+		{
+		padding: 0px;
+		height: 40px;
+		width:240px;
+		}

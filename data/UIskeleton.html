@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="DLstyle.css">
+		<script src="myscripts.js"></script> 
+		<style>
+			
+		</style>
+	</head>
+	<body onload="CheckAll()">
+		<div id="MainBox" class="captains">
+			<textarea id="TitleBox" class="t d s" placeholder="Title"></textarea>
+			<textarea id="ContentBox" class="t d s" placeholder="Contents"></textarea>
+			<br>
+			<button id="PostButton">
+				Post
+			</button>
+		</div>
+		<div id="OptionBox" class="captains">
+			<div id="Advance"> 
+				<!-- 			this should hide or show when this is pressed
+				-->			<img>
+				</img>
+				<p id="showButton" class="SH noselect" onclick="showExtra()">Show Options</p>
+				<p id="hideButton" class="SH noselect" onclick="hideExtra()">Hide Options</p>
+			</div>
+			<div id="AdvancedOptions">
+				<textarea id="TagBox" class="t d s" placeholder="tags"></textarea>
+				<p>
+					Seperate tags with commas.
+					<br>
+					Example: kittens, life-events, ramblings
+				</p>
+				<div>
+					<h5>
+						Rating
+					</h5>
+					<select id="MR">
+						<option>All</option>
+						<option>Mature (13+)</option>
+						<option>Adult (nonsexual)</option>
+						<option>Adult (sexual)</option>
+					</select>
+				</div>
+				<hr>
+				<h4>
+					Share on which sites?
+				</h4>
+				<div id="SiteBox">
+					<div id="IconRow1">
+						<div class="IconCell" id="DAcell" onmouseup="SetDestination('DA')">
+							<img src="DAfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="DAcheck">
+						</div>
+						<div class="IconCell" id="FAcell" onmouseup="SetDestination('FA')">
+							<img src="FAfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="FAcheck">
+						</div>
+						<div class="IconCell" id="IBcell" onmouseup="SetDestination('IB')">
+							<img src="IBfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="IBcheck">
+						</div>
+						<div class="IconCell" id="WScell" onmouseup="SetDestination('WS')">
+							<img src="WSfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="WScheck">
+						</div>
+						<div class="IconCell" id="SFcell" onmouseup="SetDestination('SF')">
+							<img src="SFfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="SFcheck">
+						</div>
+						<div class="IconCell" id="Steamcell" onmouseup="SetDestination('Steam')">
+							<img src="Steamfavicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="Steamcheck">
+						</div>
+					</div>
+					<div id="#DropButtonRow1">
+						<div class="DropButtonCell" id="DAdrop" onmouseup="LightHouse('DA')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="FAdrop" onmouseup="LightHouse('FA')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="IBdrop" onmouseup="LightHouse('IB')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="WSdrop" onmouseup="LightHouse('WS')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="SFdrop" onmouseup="LightHouse('SF')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="Steamdrop" onmouseup="LightHouse('Steam')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+					</div>
+					<div class="SiteDropOptions" id="DAdo">
+					This one might work. But there are no options yet.
+					</div>
+					<div class="SiteDropOptions" id="FAdo">
+					This one should work. But there are no options yet.
+					</div>
+					<div class="SiteDropOptions" id="IBdo">
+					This one should work. But there are no options yet.
+					</div>
+					<div class="SiteDropOptions" id="WSdo">
+					This one should work. But there are no options yet.
+					</div>
+					<div class="SiteDropOptions" id="SFdo">
+					This one should work. But there are no options yet.
+					</div>
+					<div class="SiteDropOptions" id="Steamdo">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div id="IconRow2">
+						<div class="IconCell" id="EXX1cell" onmouseup="SetDestination('EXX1')">
+							<img src="EXX1favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX1check">
+						</div>
+						<div class="IconCell" id="EXX2cell" onmouseup="SetDestination('EXX2')">
+							<img src="EXX2favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX2check">
+						</div>
+						<div class="IconCell" id="EXX3cell" onmouseup="SetDestination('EXX3')">
+							<img src="EXX3favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX3check">
+						</div>
+						<div class="IconCell" id="EXX4cell" onmouseup="SetDestination('EXX4')">
+							<img src="EXX4favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX4check">
+						</div>
+						<div class="IconCell" id="EXX5cell" onmouseup="SetDestination('EXX5')">
+							<img src="EXX5favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX5check">
+						</div>
+						<div class="IconCell" id="EXX6cell" onmouseup="SetDestination('EXX6')">
+							<img src="EXX6favicon.png">
+							</img>
+							<input type="checkbox" checked class="HiddenCheck" id="EXX6check">
+						</div>
+					</div>
+					<div id="#DropButtonRow1">
+						<div class="DropButtonCell" id="EXX1drop" onmouseup="LightHouse('EXX1')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="EXX2drop" onmouseup="LightHouse('EXX2')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="EXX3drop" onmouseup="LightHouse('EXX3')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="EXX4drop" onmouseup="LightHouse('EXX4')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="EXX5drop" onmouseup="LightHouse('EXX5')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+						<div class="DropButtonCell" id="EXX6drop" onmouseup="LightHouse('EXX6')">
+							<img src="DropDown.png">
+							</img>
+						</div>
+					</div>
+					<div class="SiteDropOptions" id="EXX1do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div class="SiteDropOptions" id="EXX2do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div class="SiteDropOptions" id="EXX3do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div class="SiteDropOptions" id="EXX4do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div class="SiteDropOptions" id="EXX5do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+					<div class="SiteDropOptions" id="EXX6do">
+					Sorry. Functionality is not availible for this website yet. 
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="DLrules.js">
+	</script>
+	
+	
+	
+	
+	
+</html>

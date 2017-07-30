@@ -32,7 +32,7 @@ console.log("This is fine");
 //set title value
 EXXtitle.value = cargo.title;
 //set content value
-EXXcontent.value = cargo.content;
+EXXcontent.value = cargo.content
 //set tag value
 var tagPadding = ['',''];
 var Tags="";
