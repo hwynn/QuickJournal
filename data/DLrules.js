@@ -10,6 +10,7 @@
 	document.getElementById("AdvancedOptions").style.display = "block";
 	document.getElementById("OptionBox").style.height = "304px";
 	};
+	//this controls those green website buttons
 	function SetDestination(x) {
 		var Checkybox = document.getElementById(x+"check");
 		if(Checkybox.checked)
@@ -54,15 +55,15 @@
 	
 	function LightHouse(x)
 	{
-		console.log("this works at least");
+		//console.log("this works at least");
 		if (document.getElementById(x+"do").style.display == "inline-block")
 		{
-			console.log("The options were hidden by the fog again");
+			//console.log("The options were hidden by the fog again");
 			Fog();
 		}
 		else
 		{
-		console.log("The LightHouse reveals new options in the fog");
+			//console.log("The LightHouse reveals new options in the fog");
 		Fog();
 		document.getElementById(x+"do").style.display = "inline-block";
 		document.getElementById(x+"drop").style.borderBottomColor = "#F2F2F2";
@@ -73,13 +74,21 @@
 	{
 	console.log("all checked");
 	document.getElementById("DAcheck").checked=true;
+	document.getElementById("DAcell").style.backgroundColor = "#00FF00";
 	document.getElementById("WScheck").checked=true;
+	document.getElementById("WScell").style.backgroundColor = "#00FF00";
 	document.getElementById("IBcheck").checked=true;
+	document.getElementById("IBcell").style.backgroundColor = "#00FF00";
 	document.getElementById("SFcheck").checked=true;
+	document.getElementById("SFcell").style.backgroundColor = "#00FF00";
 	document.getElementById("FAcheck").checked=true;
+	document.getElementById("FAcell").style.backgroundColor = "#00FF00";
 	document.getElementById("TBcheck").checked=true;
+	document.getElementById("TBcell").style.backgroundColor = "#00FF00";
 	document.getElementById("GPcheck").checked=true;
+	document.getElementById("GPcell").style.backgroundColor = "#00FF00";
 	document.getElementById("RTcheck").checked=true;
+	document.getElementById("RTcell").style.backgroundColor = "#00FF00";
 	//document.getElementById("EXX09check").checked=true;
 	//document.getElementById("EXX10check").checked=true;
 	//document.getElementById("EXX11check").checked=true;

@@ -1,7 +1,7 @@
 //credit to contact@spenibus.net for fixing, cleaning, and optimizing this
 var data = require("sdk/self").data;
 var tabs = require("sdk/tabs");
-
+var ss = require("sdk/simple-storage");
 
 console.log("addon started");
 
@@ -17,10 +17,12 @@ var sites = [
 ["https://plus.google.com/"                             ,"DeltaLogGP.js", false],
 [""                                                     ,"DeltaLogRT.js", false]
 ];
-
-
-
-
+if (!ss.storage.r)
+{
+	console.log("new storage R made");
+	ss.storage.r = {};
+}
+var cat = ss.storage.r;
 //****************************************************** user prompt: definition
 var journal_entry = require("sdk/panel").Panel({
     contentURL        : data.url("UIskeleton.html"),
@@ -28,17 +30,11 @@ var journal_entry = require("sdk/panel").Panel({
 	height: 520
 });
 
-
-
-
 //***************************************************** user prompt: signal show
 journal_entry.on("show", function() {
     console.log("journal showing");
-	journal_entry.port.emit("show");
+	journal_entry.port.emit("show", cat);
 });
-
-
-
 
 //*************************************************************** toolbar button
 require("sdk/ui/button/action").ActionButton({
@@ -54,23 +50,99 @@ require("sdk/ui/button/action").ActionButton({
     }
 });
 
-
-
+function loadPreferences(Cargo) //store new preferences from cargo
+{
+	//*******debugging username storage; pre storage check
+	if (Object.keys(ss.storage.r).length==0) //if storage has never been ran before. we define all the objects it needs.
+	{
+		console.log("We always like new customers");
+		ss.storage.r.d_aUN = "";
+		ss.storage.r.r_tUN = "";
+		ss.storage.r.sites = [];
+		ss.storage.r.w_sFO = false;
+		ss.storage.r.i_bGB = false;
+		ss.storage.r.i_bFO = false;
+		ss.storage.r.i_bLC = false;
+		ss.storage.r.s_fP = 0;
+		ss.storage.r.f_aLC = false;
+		ss.storage.r.r_tP = 0;
+	}
+	else
+	{
+	console.log("Want the regular shipment?");
+	console.log("old r deviantartUsername: "   + ss.storage.r.d_aUN);
+	console.log("old r weasylFriendsOnly: "    + ss.storage.r.w_sFO);
+	console.log("old r inkbGuestsBlocked: "    + ss.storage.r.i_bGB);
+	console.log("old r inkbFriendsOnly: "      + ss.storage.r.i_bFO);
+	console.log("old r inkbLockComments: "     + ss.storage.r.i_bLC);
+	console.log("old r sofurryPrivacy: "       + ss.storage.r.s_fP);
+	console.log("old r furaLockComments: "     + ss.storage.r.f_aLC);
+	console.log("old r roosterteethPrivacy: "  + ss.storage.r.r_tP);
+	console.log("old r roosterteethUsername: " + ss.storage.r.r_tUN);
+	}
+	
+	//*******running username storage
+	if (ss.storage.r.d_aUN.length==0)
+	{
+		console.log("no DAusername found. Storing new one");
+		console.log("r has : " + ss.storage.r.d_aUN);
+		console.log("Cargo has : " + Cargo.d_aUN);
+		ss.storage.r.d_aUN= Cargo.d_aUN;
+		console.log("r now has : " + ss.storage.r.d_aUN);
+	}
+	console.log("checking RT meters: ");
+	console.log("checking RT meters: " + ss.storage.r.r_tUN.length);
+	if (ss.storage.r.r_tUN.length==0)
+	{
+		console.log("no RTusername found. Storing new one");
+		console.log("r has : " + ss.storage.r.r_tUN);
+		console.log("Cargo has : " + Cargo.r_tUN);
+		ss.storage.r.r_tUN= Cargo.r_tUN;
+		console.log("r now has : " + ss.storage.r.r_tUN);
+	}
+	//*******running site selection storage
+	if (ss.storage.r.sites.length ==0)
+	{
+		console.log("no sites found in storage. filling it up");
+	//fill it up
+		for (i = 0; i < Cargo.sites.length; i=i+1)
+		{
+			console.log("Cargo has : " + Cargo.sites[i]);
+			ss.storage.r.sites.push(Cargo.sites[i]);
+			console.log("r now has : " + ss.storage.r.sites[i]);
+		} 
+	}
+	else
+	{
+	//replace entires
+		console.log("old sites found in storage. we're replacing them");
+		for (i = 0; i < ss.storage.r.sites.length; i=i+1)
+		{
+			console.log("r has : " + ss.storage.r.sites[i]);
+			console.log("Cargo has : " + Cargo.sites[i]);
+			ss.storage.r.sites[i] = Cargo.sites[i];
+			console.log("r now has : " + ss.storage.r.sites[i]);
+		}
+	}
+	
+	//*******debugging username storage; post storage check
+	console.log("New DA username: " + ss.storage.r.d_aUN) //prints newly stored username
+	console.log("New RT username: " + ss.storage.r.r_tUN) //prints newly stored username
+	//*******set privacy stuff. 
+	ss.storage.r.w_sFO = Cargo.w_sFO;
+	ss.storage.r.i_bGB = Cargo.i_bGB;
+	ss.storage.r.i_bFO = Cargo.i_bFO;
+	ss.storage.r.i_bLC = Cargo.i_bLC;
+	ss.storage.r.s_fP = Cargo.s_fP;
+	ss.storage.r.f_aLC = Cargo.f_aLC;
+	ss.storage.r.r_tP = Cargo.r_tP;
+	
+	// put all this storage into s again
+	cat = ss.storage.r;
+}
 
 //********************************************** cargo received from user prompt
 journal_entry.port.on("cargo-shipping", function(Cargo) {
-	
-    console.log("title: " + Cargo.title);
-	console.log("deviantartUsername: "   + Cargo.d_aUN);
-	console.log("weasylFriendsOnly: "    + Cargo.w_sFO);
-	console.log("inkbGuestsBlocked: "    + Cargo.i_bGB);
-	console.log("inkbFriendsOnly: "      + Cargo.i_bFO);
-	console.log("inkbLockComments: "     + Cargo.i_bLC);
-	console.log("sofurryPrivacy: "       + Cargo.s_fP);
-	console.log("furaLockComments: "     + Cargo.f_aLC);
-	console.log("roosterteethPrivacy: "  + Cargo.r_tP);
-	console.log("roosterteethUsername: " + Cargo.r_tUN);
-	
 	
     // hide user prompt
     journal_entry.hide();
@@ -81,12 +153,14 @@ journal_entry.port.on("cargo-shipping", function(Cargo) {
 		sites[i][2] = Cargo.sites[i];
 	}
 	
+	loadPreferences(Cargo);
+		
 	//add deviant art url
-	sites[0][0] = "http://" + Cargo.d_aUN +".deviantart.com/journal/?edit";
+	sites[0][0] = "http://" + ss.storage.d_aUN +".deviantart.com/journal/?edit";
     //add roosterteeth url
-	sites[7][0] = "https://roosterteeth.com/user/"+Cargo.r_tUN;
+	sites[7][0] = "https://roosterteeth.com/user/"+ss.storage.r_tUN;
 	console.log("Step 8: Cargo loaded in main and panel hidden");
-	console.log("There are our sites: "+sites);
+	//console.log("There are our sites: "+sites);
     // this starts the tab opening process
 	//add roosterteeth url
     TabIt(Cargo);

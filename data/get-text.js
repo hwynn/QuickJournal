@@ -19,19 +19,60 @@ var roosterteethUsername  = document.getElementById("roosterteethUsername");
 
 var tagArea = document.getElementById("TagBox");
 //site specific options
-
+function CheckAll()
+{
+	console.log("all checked");
+	
+	for (i = 0; i < sitelist.length; i = i+1)
+		{
+		document.getElementById(sitelist[i]+"check").checked=true;
+		document.getElementById(sitelist[i]+"cell").style.backgroundColor = "#00FF00";
+		}
+};
 
 //make sure these are in the same order as sites in main.js
-var sitelist = ["DAcheck", "WScheck", "IBcheck", "SFcheck", "FAcheck", "TBcheck", "GPcheck", "RTcheck"];
+var sitelist = ["DA", "WS", "IB", "SF", "FA", "TB", "GP", "RT"];
+function regular(cat)
+{
+	console.log("more debugging prompts");
+	//uncheck the sites not checked before
+	for (i = 0; i < cat.sites.length; i = i+1)
+	{
+	if (!cat.sites[i])
+		{
+			console.log("Nope, not " +sitelist[i]);
+			document.getElementById(sitelist[i]+"check").checked=false;
+			document.getElementById(sitelist[i]+"cell").style.backgroundColor = "#ACA1A1";
+		}
+	deviantartUsername.value = cat.d_aUN;
+	weasylFriendsOnly.checked = cat.w_sFO;
+	inkbGuestsBlocked.checked = cat.i_bGB;
+	inkbFriendsOnly.checked = cat.i_bFO;
+	inkbLockComments.checked = cat.i_bLC;
+	sofurryPrivacy.selectedIndex = cat.s_fP;
+	furaLockComments.checked = cat.f_aLC;
+	roosterteethPrivacy.selectedIndex = cat.r_tP;
+	roosterteethUsername.value = cat.r_tUN;
+	}
+};
 
 //focusses on title box when button is pressed
-self.port.on("show", function() {
+self.port.on("show", function(cat) {
 
     titleArea.focus();
-
+	console.log("Did the cat make it?");
+	console.log(cat);
     console.log("Step: textarea focussed");
     console.log(titleArea.value.replace(/[\n\r]/g, ''));
     console.log(finalButton);
+	
+	if (Object.keys(cat).length!=0)
+	{
+	console.log("banger");
+	CheckAll();
+	regular(cat);
+	}
+	
 });
 
 //this switches the cursor to the content box when the user hits enter in the title box
@@ -59,7 +100,7 @@ var siteCheck = function() {
 	var sitestatus = [];
 	for (i = 0; i < sitelist.length; i = i+1)
 		{
-		sitestatus.push(document.getElementById(sitelist[i]).checked);
+		sitestatus.push(document.getElementById(sitelist[i]+"check").checked);
 		}
 	return sitestatus;
 };
