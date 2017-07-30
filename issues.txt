@@ -1,0 +1,7 @@
+This should search for a single term on all the art sites (at least in guest mode). 
+
+However it still has mechanics that try to close the tab. Those mechanics need to be cut out.
+
+Once it search in one art site, try making it search in two one after another
+
+Then try putting them all in a loop. 
