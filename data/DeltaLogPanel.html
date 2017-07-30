@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<!-- <link type="text/css" rel="stylesheet" href="DeltaLogPanel.css"/> -->
+		<style>
+			#MainPanel 
+			{
+			width: 180px;
+			height:180px;
+			background-color: #ACA1A1;
+			}
+			
+			#advancedOptions 
+			{
+			display: none;
+			}
+			#showButton{display: block;}
+			#hideButton{display: none;}
+		</style>
+	</head>
+
+	<body id="MainPanel">
+		<div id="simpleOptions">
+			<button type="button" id="showButton" onclick="showExtra()">Show Extra</button>
+			<button type="button" id="hideButton" onclick="hideExtra()">Hide Extra</button>
+			<textarea id="titleBox" placeholder="Title" rows="1"></textarea>
+			<textarea id="contentBox" placeholder="Write your journal content here."></textarea>
+			<button type="button">Publish</button>
+		</div>
+		<div id="advancedOptions">
+			<textarea id="tagBox" placeholder="Tags. Seperate with commas (example: kittens, life update, recipe)" rows="1"></textarea>
+		<div>
+	</body>
+	<script>
+	function hideExtra() {
+	document.getElementById("showButton").style.display = "block";
+	document.getElementById("hideButton").style.display = "none";
+	document.getElementById("advancedOptions").style.display = "none";
+	};
+	function showExtra() {
+	document.getElementById("showButton").style.display = "none";
+	document.getElementById("hideButton").style.display = "block";
+	document.getElementById("advancedOptions").style.display = "block";
+	};
+	</script>
+</html>
