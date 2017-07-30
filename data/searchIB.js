@@ -1,4 +1,6 @@
-var term = "modular";
+var term = self.options.Cargo.Title;
+console.log(self.options.sites.urls[1]);
+
 //puts words in the input box
 var titlePort = function(x){
 	var zA = document.querySelector("#text");
@@ -6,24 +8,27 @@ var titlePort = function(x){
 };
 //hits the submit button
 var ShipIt = function(){
-	// document.querySelector("body > form:nth-child(12)").submit();
-	// document.querySelector("body > form:nth-child(9)").submit();
 	var x = document.querySelector("body > form:nth-child(12)");
 	var y =document.querySelector("body > form:nth-child(9)");
 	if (x !==null || y !==null)
 	{
 		if (x !== null) 
 		{
-			x.submit();
+		console.log("It's x");
 		}
 		else 
 		{
-			y.submit();
+		console.log("It's y");
+			x = y;
 		}
 	}
+	x.submit();
+	console.log("Unloading now");
+	//self.port.emit("myMessage");
 };
 var Finalize = function(){
 titlePort(term);
 ShipIt();
+console.log("That's all, folks");
 };
 Finalize();
