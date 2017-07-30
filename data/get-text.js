@@ -62,7 +62,7 @@ self.port.on("show", function(cat) {
     titleArea.focus();
 	console.log("Did the cat make it?");
 	console.log(cat);
-    console.log("Step: textarea focussed");
+    console.log("Step 2: textarea focussed");
     console.log(titleArea.value.replace(/[\n\r]/g, ''));
     console.log(finalButton);
 	
@@ -108,8 +108,9 @@ var siteCheck = function() {
 //this defines the cargo on the button press then ships it.
 finalButton.addEventListener('click', function() {
 	//print everything to the log for debugging
-    console.log("Step: publish button clicked, beginning cargo setup");
-	console.log("Title: "    + titleArea.value.replace(/[\n\r]/g, ''));
+	
+    console.log("Step 3: publish button clicked, beginning cargo setup");
+/* 	console.log("Title: "    + titleArea.value.replace(/[\n\r]/g, ''));
 	console.log("Content: "  + contentArea.value);
 	console.log("Tags: "     + tagCheck(tagArea.value));
 	console.log("Rating: "   + ratingsbox.selectedIndex);
@@ -122,7 +123,7 @@ finalButton.addEventListener('click', function() {
 	console.log("sofurryPrivacy: "       + sofurryPrivacy.selectedIndex);
 	console.log("furaLockComments: "     + furaLockComments.checked);
 	console.log("roosterteethPrivacy: "  + roosterteethPrivacy.selectedIndex);
-	console.log("roosterteethUsername: " + roosterteethUsername.value);
+	console.log("roosterteethUsername: " + roosterteethUsername.value); */
     // send cargo
     self.port.emit("cargo-shipping", {
         title: titleArea.value.replace(/[\n\r]/g, ''),
@@ -143,7 +144,7 @@ finalButton.addEventListener('click', function() {
 	//maybe add a function to turn checked value of the onlyfriends box into onlyfriends
 	
     // reset MOST inputs. Not all. Some should be kept (like usernames)
-	console.log("reset shit");
+	console.log("Step 3.5: reset some panel stuff");
 	titleArea.value = "";
 	contentArea.value = "";
 	tagArea.value = "";

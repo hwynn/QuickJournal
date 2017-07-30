@@ -33,6 +33,7 @@ var journal_entry = require("sdk/panel").Panel({
 //***************************************************** user prompt: signal show
 journal_entry.on("show", function() {
     console.log("journal showing");
+	console.log("Step 1: show panel");
 	journal_entry.port.emit("show", cat);
 });
 
@@ -52,6 +53,7 @@ require("sdk/ui/button/action").ActionButton({
 
 function loadPreferences(Cargo) //store new preferences from cargo
 {
+	console.log("Step 5: Store preferences");
 	//*******debugging username storage; pre storage check
 	if (Object.keys(ss.storage.r).length==0) //if storage has never been ran before. we define all the objects it needs.
 	{
@@ -80,7 +82,7 @@ function loadPreferences(Cargo) //store new preferences from cargo
 	console.log("old r roosterteethPrivacy: "  + ss.storage.r.r_tP);
 	console.log("old r roosterteethUsername: " + ss.storage.r.r_tUN);
 	}
-	
+	console.log("Step 6: Load new preferences in storage");
 	//*******running username storage
 	if (ss.storage.r.d_aUN.length==0)
 	{
@@ -91,7 +93,7 @@ function loadPreferences(Cargo) //store new preferences from cargo
 		console.log("r now has : " + ss.storage.r.d_aUN);
 	}
 	console.log("checking RT meters: ");
-	console.log("checking RT meters: " + ss.storage.r.r_tUN.length);
+	//console.log("checking RT meters: " + ss.storage.r.r_tUN.length);
 	if (ss.storage.r.r_tUN.length==0)
 	{
 		console.log("no RTusername found. Storing new one");
@@ -99,7 +101,7 @@ function loadPreferences(Cargo) //store new preferences from cargo
 		console.log("Cargo has : " + Cargo.r_tUN);
 		ss.storage.r.r_tUN= Cargo.r_tUN;
 		console.log("r now has : " + ss.storage.r.r_tUN);
-	}
+	} 
 	//*******running site selection storage
 	if (ss.storage.r.sites.length ==0)
 	{
@@ -107,9 +109,9 @@ function loadPreferences(Cargo) //store new preferences from cargo
 	//fill it up
 		for (i = 0; i < Cargo.sites.length; i=i+1)
 		{
-			console.log("Cargo has : " + Cargo.sites[i]);
+			//console.log("Cargo has : " + Cargo.sites[i]);
 			ss.storage.r.sites.push(Cargo.sites[i]);
-			console.log("r now has : " + ss.storage.r.sites[i]);
+			//console.log("r now has : " + ss.storage.r.sites[i]);
 		} 
 	}
 	else
@@ -136,8 +138,9 @@ function loadPreferences(Cargo) //store new preferences from cargo
 	ss.storage.r.s_fP = Cargo.s_fP;
 	ss.storage.r.f_aLC = Cargo.f_aLC;
 	ss.storage.r.r_tP = Cargo.r_tP;
-	
+	console.log("All preferences from cargo are now stored");
 	// put all this storage into s again
+	
 	cat = ss.storage.r;
 }
 
@@ -146,7 +149,8 @@ journal_entry.port.on("cargo-shipping", function(Cargo) {
 	
     // hide user prompt
     journal_entry.hide();
-	console.log("Site list length: " + sites.length);
+	console.log("Step 4: Cargo passed to barge");
+	//console.log("Site list length: " + sites.length);
 	//adds site choices from user
 	for (i = 0; i < sites.length; i=i+1)
 	{
@@ -154,11 +158,13 @@ journal_entry.port.on("cargo-shipping", function(Cargo) {
 	}
 	
 	loadPreferences(Cargo);
-		
+	
+	console.log("Step 7: get URLs from cargo");
 	//add deviant art url
-	sites[0][0] = "http://" + ss.storage.d_aUN +".deviantart.com/journal/?edit";
+	sites[0][0] = "http://" + ss.storage.r.d_aUN +".deviantart.com/journal/?edit";
     //add roosterteeth url
-	sites[7][0] = "https://roosterteeth.com/user/"+ss.storage.r_tUN;
+	sites[7][0] = "https://roosterteeth.com/user/"+ss.storage.r.r_tUN;
+	
 	console.log("Step 8: Cargo loaded in main and panel hidden");
 	//console.log("There are our sites: "+sites);
     // this starts the tab opening process

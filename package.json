@@ -1,7 +1,7 @@
 {
   "title": "Quick Journal",
   "name": "my-addon",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An addon that lets you post a journal to several webistes at once.",
   "main": "index.js",
   "author": "FergusWyrm",
